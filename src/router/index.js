@@ -1,22 +1,38 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/dayz-spawn-builder',
+    name: 'DayzSpawnBuilder',
+    component: () => import(/* webpackChunkName: "dayz-spawn-builder" */ '../views/DayzSpawnBuilder.vue')
   },
   {
-    path: '/about',
+    path: '/dayz-types',
+    name: 'DayzTypes',
+    component: () => import(/* webpackChunkName: "dayz-types" */ '../views/DayzTypes.vue')
+  },
+  {
+    path: '/xml-browser',
+    name: 'XMLBrowser',
+    component: () => import(/* webpackChunkName: "dayz-spawn-builder" */ '../views/XMLBrowser.vue')
+  },
+  {
+    path: '/',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/airlift/:hash',
+    name: 'Airlift',
+    component: () => import(/* webpackChunkName: "playground" */ '../views/Airlift.vue')
+  },
+  {
+    path: '/playground',
+    name: 'Playground',
+    component: () => import(/* webpackChunkName: "playground" */ '../views/Playground.vue')
   }
 ]
 
